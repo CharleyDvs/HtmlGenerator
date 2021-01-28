@@ -1,5 +1,9 @@
-// import HtmlGenerator from '../components/HtmlGenerator'
+import HtmlGenerator from '../components/HtmlGenerator'
 
 export default function Home() {
-  return <>{/* <HtmlGenerator /> */}</>
+  return (
+    <>
+      <HtmlGenerator />
+    </>
+  )
 }
