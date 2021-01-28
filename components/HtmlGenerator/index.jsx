@@ -12,9 +12,13 @@ const HtmlGenerator = () => {
   }
   useEffect(() => {
     const getInitialData = async () => {
-      const response = await axios('http://localhost:3000/api/initialData')
-      const data = await response.data
-      setTemplateVariables(data)
+      try {
+        const response = await axios('http://localhost:3000/api/initialData')
+        const data = await response.data
+        setTemplateVariables(data)
+      } catch (error) {
+        console.error(error)
+      }
     }
     getInitialData()
   }, [])

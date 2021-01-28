@@ -24,5 +24,6 @@ export default (req, res) => {
     linkText1: 'Herramientas neumáticas e inalámbricas',
     linkText2: 'Compresores de tornillo y de pistón',
     linkText3: 'Herramientas para construcción',
+    headerBg: '222',
   })
 }

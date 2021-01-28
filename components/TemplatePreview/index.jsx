@@ -16,11 +16,15 @@ const TemplatePreview = ({ templateVariables }) => {
     linkText1,
     linkText2,
     linkText3,
+    headerBg,
   } = templateVariables
   return (
     <section className="collection">
       <div className="grid-container">
-        <div className="logo-container">
+        <div
+          className="logo-container"
+          style={{ backgroundColor: `#${headerBg}` }}
+        >
           <img src={`${logoUrl}`} alt={`logo ${brandName}`} />
         </div>
         <div

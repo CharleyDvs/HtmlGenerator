@@ -19,11 +19,11 @@ const TemplateForm = ({ setTemplateData, templateVariables }) => {
     },
     {
       name: 'leftImage',
-      label: 'Dirección del fondo izquierdo',
+      label: 'Dirección del fondo izquierdo (300x550px)',
     },
     {
       name: 'rightImage',
-      label: 'Dirección del fondo derecho',
+      label: 'Dirección del fondo derecho (300x550px)',
     },
     {
       name: 'linkText1',
@@ -31,7 +31,7 @@ const TemplateForm = ({ setTemplateData, templateVariables }) => {
     },
     {
       name: 'linkImage1',
-      label: 'Imagen del primer enlace',
+      label: 'Imagen del primer enlace (160x160px)',
     },
     {
       name: 'url1',
@@ -43,7 +43,7 @@ const TemplateForm = ({ setTemplateData, templateVariables }) => {
     },
     {
       name: 'linkImage2',
-      label: 'Imagen del segundo enlace',
+      label: 'Imagen del segundo enlace (160x160px)',
     },
     {
       name: 'url2',
@@ -55,11 +55,15 @@ const TemplateForm = ({ setTemplateData, templateVariables }) => {
     },
     {
       name: 'linkImage3',
-      label: 'Imagen del tercer enlace',
+      label: 'Imagen del tercer enlace (160x160px)',
     },
     {
       name: 'url3',
       label: 'Dirección del tercer enlace',
+    },
+    {
+      name: 'headerBg',
+      label: 'Color de fondo (Hexadecimal)',
     },
   ]
   return (
