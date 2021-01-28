@@ -1,15 +1,23 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import TemplateForm from '../TemplateForm'
 import TemplatePreview from '../TemplatePreview'
-import { initialState } from '../../utils/initialState'
+import axios from 'axios'
 import { templateGenerator } from '../../utils/templateGenerator'
 import { copyCodeToClipboard } from '../../utils/copyCode'
 
 const HtmlGenerator = () => {
-  const [templateVariables, setTemplateVariables] = useState(initialState)
+  const [templateVariables, setTemplateVariables] = useState({})
   const setTemplateData = (data) => {
     setTemplateVariables(data)
   }
+  useEffect(() => {
+    const getInitialData = async () => {
+      const response = await axios('http://localhost:3000/api/initialData')
+      const data = await response.data
+      setTemplateVariables(data)
+    }
+    getInitialData()
+  }, [])
   return (
     <section className="html-generator">
       <h1>Generador de HTML para cornershop</h1>
