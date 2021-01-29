@@ -9,6 +9,16 @@
     margin: 2rem auto;
   }
   .html-output-container {
+    .code-preview {
+      display: flex;
+      flex-direction: column;
+      width: 80%;
+      margin: 0 16px;
+      overflow-x: scroll;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
     button {
       margin: 2rem 25%;
     }

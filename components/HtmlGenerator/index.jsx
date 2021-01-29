@@ -34,7 +34,9 @@ const HtmlGenerator = () => {
         </div>
         <div className="html-output-container">
           <h2>Código generado:</h2>
-          <p>{templateGenerator(templateVariables)}</p>
+          <div className="code-preview">
+            <p>{templateGenerator(templateVariables)}</p>
+          </div>
           <button
             onClick={() => {
               copyCodeToClipboard(templateGenerator(templateVariables))
