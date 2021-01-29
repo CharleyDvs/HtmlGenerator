@@ -33,6 +33,10 @@ button {
   background-color: rgba(0, 0, 0, 0);
   transition: all ease 0.7s;
   font-weight: 700;
+  .fas {
+    margin: 0 8px;
+    opacity: 0.8;
+  }
   cursor: pointer;
   &:hover {
     transform: scale(1.02) translateY(0.1rem);

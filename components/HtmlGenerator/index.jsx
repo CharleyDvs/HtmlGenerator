@@ -42,7 +42,7 @@ const HtmlGenerator = () => {
               copyCodeToClipboard(templateGenerator(templateVariables))
             }}
           >
-            Copiar código
+            <i className="fas fa-clipboard fa-lg"></i> Copiar código
           </button>
         </div>
       </div>
