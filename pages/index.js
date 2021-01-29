@@ -7,7 +7,7 @@ export default function Home() {
       <Head>
         <script
           src="https://kit.fontawesome.com/57fa0c75ff.js"
-          crossorigin="anonymous"
+          crossOrigin="anonymous"
         ></script>
         <title>Generador de HTML</title>
       </Head>
