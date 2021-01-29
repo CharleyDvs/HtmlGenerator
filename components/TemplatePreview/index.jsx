@@ -37,19 +37,19 @@ const TemplatePreview = ({ templateVariables }) => {
         </div>
         <div className="links-container">
           <div className="link-container">
-            <a href={`${url1}`} target="_blank">
+            <a href={`${url1}`} target="_blank" rel="noreferrer">
               <img src={`${linkImage1}`} alt="" />
               <p>{linkText1}</p>
             </a>
           </div>
           <div className="link-container">
-            <a href={`${url2}`} target="_blank">
+            <a href={`${url2}`} target="_blank" rel="noreferrer">
               <img src={`${linkImage2}`} alt="" />
               <p>{linkText2}</p>
             </a>
           </div>
           <div className="link-container">
-            <a href={`${url3}`} target="_blank">
+            <a href={`${url3}`} target="_blank" rel="noreferrer">
               <img src={`${linkImage3}`} alt="" />
               <p>{linkText3}</p>
             </a>
