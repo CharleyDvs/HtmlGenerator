@@ -13,7 +13,9 @@ const HtmlGenerator = () => {
   useEffect(() => {
     const getInitialData = async () => {
       try {
-        const response = await axios('http://localhost:3000/api/initialData')
+        const response = await axios(
+          'https://html-generator.vercel.app/api/initialData'
+        )
         const data = await response.data
         setTemplateVariables(data)
       } catch (error) {
