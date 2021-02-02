@@ -14,11 +14,12 @@ export const templateGenerator = (obj) => {
     linkText1,
     linkText2,
     linkText3,
+    headerBg,
   } = obj
   const template = `
   <header class="collection">
   <div class="grid-container">
-    <div class="logo-container">
+    <div class="logo-container" style="background-color: #${headerBg};">
       <img src="${logoUrl}" alt="logo ${brandName}">
     </div>
     <div class="img-left " style="background-image: url('${leftImage}');" ></div>

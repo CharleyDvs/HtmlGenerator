@@ -1,5 +1,4 @@
 .collection .grid-container {
-  background-color: #fff;
   display: grid;
   grid-template-areas:
     'logo logo logo'
@@ -11,6 +10,7 @@
   grid-template-columns: 250px 1fr 250px;
   margin-bottom: 64px;
   color: #565656;
+  background-color: #fff;
 }
 
 .grid-container .logo-container {
@@ -20,8 +20,8 @@
 }
 
 .grid-container .logo-container img {
-  margin: auto 3rem;
-  max-height: 60%;
+  margin: auto 0;
+  height: 80%;
   width: auto;
 }
 
@@ -97,7 +97,6 @@
 }
 
 .grid-container .links-container .link-container:hover img {
-  filter: drop-shadow(1px 1px 1px rgba(25, 25, 25, 0.5));
   transform: scale(1.05);
 }
 
@@ -121,13 +120,19 @@
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
   .collection .grid-container .links-container {
     flex-direction: column;
   }
 
   .collection .grid-container .links-container .link-container {
     display: none;
+  }
+
+  .grid-container .logo-container img {
+    margin: auto 0;
+    height: 80%;
+    width: auto;
   }
 }
 
