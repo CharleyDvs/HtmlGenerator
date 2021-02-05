@@ -3,8 +3,6 @@ const obj = {
   abs: [],
 }
 
-if ('table' in obj) {
-  console.log('working')
-}
+delete obj.table
 
-'table' in obj && console.log('works')
+console.log(obj)

@@ -8,6 +8,7 @@ function CustomListGenerator({
   newName,
   handleInputChange,
   handleTemplateChange,
+  removeFieldFromData,
 }) {
   const list = templateData[templateKey]
 
@@ -21,6 +22,8 @@ function CustomListGenerator({
   }
 
   const removeItem = () => {
+    const keyToRemove = `${newName}${list.length - 1}`
+    removeFieldFromData(keyToRemove)
     const newList = [...list]
     newList.pop()
     handleTemplateChange(templateKey, newList)

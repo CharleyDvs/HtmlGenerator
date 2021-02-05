@@ -27,7 +27,7 @@ const initialTemplateData = {
     },
   },
   description: '',
-  features: '',
+  features: [],
   tank: 'Sin tanque',
   dryer: 'Sin secador',
   niche: '',
@@ -85,6 +85,12 @@ function CompressorHtml() {
     console.log(data)
   }
 
+  const removeFieldFromData = (keyToRemove) => {
+    const newData = { ...data }
+    delete newData[keyToRemove]
+    setData(newData)
+  }
+
   const [templateData, setTemplateData] = useState(initialTemplateData)
 
   const handleTemplateChange = (templateKey, obj) => {
@@ -92,7 +98,6 @@ function CompressorHtml() {
       ...templateData,
       [templateKey]: obj,
     })
-    console.log(templateData)
   }
 
   const { defaultInputs } = templateData
@@ -112,6 +117,7 @@ function CompressorHtml() {
         newName="alternativeCode"
         handleInputChange={handleInputChange}
         handleTemplateChange={handleTemplateChange}
+        removeFieldFromData={removeFieldFromData}
       />
       <ListFieldset
         title="código interno"
@@ -120,6 +126,7 @@ function CompressorHtml() {
         newName="innerCode"
         handleInputChange={handleInputChange}
         handleTemplateChange={handleTemplateChange}
+        removeFieldFromData={removeFieldFromData}
       />
       <fieldset>
         <legend>Datos adicionales</legend>
@@ -160,14 +167,15 @@ function CompressorHtml() {
           type="text"
         />
       </fieldset>
-      {/* <CustomListGenerator
+      <CustomListGenerator
         title="características"
         templateData={templateData}
         templateKey="features"
         newName="feature"
         handleInputChange={handleInputChange}
         handleTemplateChange={handleTemplateChange}
-      /> */}
+        removeFieldFromData={removeFieldFromData}
+      />
       <ListFieldset
         title="documentación"
         templateData={templateData}
@@ -175,6 +183,7 @@ function CompressorHtml() {
         newName="documentation"
         handleInputChange={handleInputChange}
         handleTemplateChange={handleTemplateChange}
+        removeFieldFromData={removeFieldFromData}
       />
       <ListFieldset
         title="video"
@@ -183,6 +192,7 @@ function CompressorHtml() {
         newName="video"
         handleInputChange={handleInputChange}
         handleTemplateChange={handleTemplateChange}
+        removeFieldFromData={removeFieldFromData}
       />
       <ListFieldset
         title="imagen"
@@ -191,6 +201,7 @@ function CompressorHtml() {
         newName="image"
         handleInputChange={handleInputChange}
         handleTemplateChange={handleTemplateChange}
+        removeFieldFromData={removeFieldFromData}
       />
     </form>
   )
