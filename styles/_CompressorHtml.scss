@@ -1,0 +1,23 @@
+.generator-form {
+  max-width: 95%;
+  margin: 2.5%;
+  fieldset {
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    padding: 16px 8px;
+    button {
+      width: 80%;
+      margin: 8px auto;
+    }
+    label,
+    legend {
+      text-transform: capitalize;
+    }
+    input,
+    textarea {
+      margin: 8px 0;
+      width: 90%;
+    }
+  }
+}
