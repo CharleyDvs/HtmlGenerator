@@ -1,5 +1,6 @@
 import React from 'react'
 import { sortData } from './utils'
+import ProductTitlePreview from '../ProductTitlePreview'
 import ProductTablePreview from '../ProductTablePreview'
 
 const initialTemplateData = {
@@ -122,6 +123,7 @@ function ProductTemplatePreview({ data }) {
   const tableDataSorted = sortData(Object.keys(tableTemplate), data)
   return (
     <section className="product-template-preview">
+      <ProductTitlePreview data={data} productType="Compresor de aire" />
       <ProductTablePreview
         tableData={tableDataSorted}
         tableTemplateData={tableTemplate}

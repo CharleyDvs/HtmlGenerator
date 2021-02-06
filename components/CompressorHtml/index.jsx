@@ -125,6 +125,7 @@ function CompressorHtml() {
     model: 'Modelo',
     capacity: 'Hp',
     voltage: '127V',
+    maxPressure: '150psi',
     flowRate: '10cfm',
     tank: 'Sin tanque',
     dryer: 'Sin secador',
