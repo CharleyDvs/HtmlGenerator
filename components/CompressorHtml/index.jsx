@@ -2,34 +2,89 @@ import React, { useState } from 'react'
 import CustomFieldset from '../CustomFieldset'
 import ListFieldset from '../ListFieldset'
 import CustomListGenerator from '../CustomListGenerator'
+import ProductTemplatePreview from '../ProductTemplatePreview'
 
 const initialTemplateData = {
-  defaultInputs: {
-    name: {
+  tableTemplate: {
+    brandName: {
       name: 'brandName',
-      label: 'Marca',
+      label: 'marca',
     },
     model: {
       name: 'model',
-      label: 'Modelo',
+      label: 'modelo',
     },
     capacity: {
       name: 'capacity',
-      label: 'Potencia',
+      label: 'potencia',
+    },
+    maxPressure: {
+      name: 'maxPressure',
+      label: 'presión máxima',
     },
     voltage: {
       name: 'voltage',
-      label: 'Voltaje de operación',
+      label: 'voltaje de operación',
     },
     flowRate: {
       name: 'flowRate',
-      label: 'Capacidad de flujo',
+      label: 'capacidad de flujo',
+    },
+    airFlow: {
+      name: 'airFlow',
+      label: 'volumen de generación de aire',
+    },
+    motor: {
+      name: 'motor',
+      label: 'tipo de motor',
+    },
+    control: {
+      name: 'control',
+      label: 'tipo de control',
+    },
+    tank: {
+      name: 'tank',
+      label: 'posición del tanque',
+    },
+    compressorElem: {
+      name: 'compressorElem',
+      label: 'tipo de elemento compresor',
+    },
+    noiseLevel: {
+      name: 'noiseLevel',
+      label: 'nivel de ruido',
+    },
+    dryer: {
+      name: 'dryer',
+      label: 'modelo del secador',
+    },
+    airOutput: {
+      name: 'airOutput',
+      label: 'diámetro de salida de aire',
+    },
+    measures: {
+      name: 'measures',
+      label: 'dimensiones',
+    },
+    weight: {
+      name: 'weight',
+      label: 'peso estimado',
+    },
+    efficiency: {
+      name: 'efficiency',
+      label: 'eficiencia nominal del motor',
+    },
+    energyConsumed: {
+      name: 'energyConsumed',
+      label: 'consumo energético',
+    },
+    useLevel: {
+      name: 'useLevel',
+      label: 'nivel de uso',
     },
   },
   description: '',
   features: [],
-  tank: 'Sin tanque',
-  dryer: 'Sin secador',
   niche: '',
   alternativeCodeList: [
     {
@@ -43,6 +98,7 @@ const initialTemplateData = {
       label: 'código interno 1',
     },
   ],
+  additionalData: {},
   documentationList: [
     {
       name: 'documentation0',
@@ -100,110 +156,95 @@ function CompressorHtml() {
     })
   }
 
-  const { defaultInputs } = templateData
+  const { tableTemplate } = templateData
 
   return (
-    <form className="generator-form">
-      <CustomFieldset
-        legend="Datos básicos"
-        templateData={defaultInputs}
-        data={data}
-        handleInputChange={handleInputChange}
-      />
-      <ListFieldset
-        title="código alterno"
-        templateData={templateData}
-        templateKey="alternativeCodeList"
-        newName="alternativeCode"
-        handleInputChange={handleInputChange}
-        handleTemplateChange={handleTemplateChange}
-        removeFieldFromData={removeFieldFromData}
-      />
-      <ListFieldset
-        title="código interno"
-        templateData={templateData}
-        templateKey="innerCodeList"
-        newName="innerCode"
-        handleInputChange={handleInputChange}
-        handleTemplateChange={handleTemplateChange}
-        removeFieldFromData={removeFieldFromData}
-      />
-      <fieldset>
-        <legend>Datos adicionales</legend>
-        <label htmlFor="description">Descripción</label>
-        <textarea
-          name="description"
-          onChange={(e) => {
-            handleTemplateChange('description', e.target.value)
-          }}
-          cols="30"
-          rows="10"
-        ></textarea>
-        <label htmlFor="">Tanque</label>
-        <input
-          onChange={(e) => {
-            handleInputChange(e)
-          }}
-          placeholder={templateData.tank}
-          name="tank"
-          type="text"
+    <section className="product-html-grid">
+      <form className="generator-form">
+        <CustomFieldset
+          legend="Datos básicos"
+          templateData={tableTemplate}
+          data={data}
+          handleInputChange={handleInputChange}
         />
-        <label htmlFor="dryer">Secador</label>
-        <input
-          onChange={(e) => {
-            handleInputChange(e)
-          }}
-          placeholder={templateData.dryer}
-          name="dryer"
-          type="text"
+        <ListFieldset
+          title="código alterno"
+          templateData={templateData}
+          templateKey="alternativeCodeList"
+          newName="alternativeCode"
+          handleInputChange={handleInputChange}
+          handleTemplateChange={handleTemplateChange}
+          removeFieldFromData={removeFieldFromData}
         />
-        <label htmlFor="niche">Segmento Objetivo</label>
-        <input
-          onChange={(e) => {
-            handleInputChange(e)
-          }}
-          placeholder={templateData.niche}
-          name="niche"
-          type="text"
+        <ListFieldset
+          title="código interno"
+          templateData={templateData}
+          templateKey="innerCodeList"
+          newName="innerCode"
+          handleInputChange={handleInputChange}
+          handleTemplateChange={handleTemplateChange}
+          removeFieldFromData={removeFieldFromData}
         />
-      </fieldset>
-      <CustomListGenerator
-        title="características"
-        templateData={templateData}
-        templateKey="features"
-        newName="feature"
-        handleInputChange={handleInputChange}
-        handleTemplateChange={handleTemplateChange}
-        removeFieldFromData={removeFieldFromData}
-      />
-      <ListFieldset
-        title="documentación"
-        templateData={templateData}
-        templateKey="documentationList"
-        newName="documentation"
-        handleInputChange={handleInputChange}
-        handleTemplateChange={handleTemplateChange}
-        removeFieldFromData={removeFieldFromData}
-      />
-      <ListFieldset
-        title="video"
-        templateData={templateData}
-        templateKey="videoList"
-        newName="video"
-        handleInputChange={handleInputChange}
-        handleTemplateChange={handleTemplateChange}
-        removeFieldFromData={removeFieldFromData}
-      />
-      <ListFieldset
-        title="imagen"
-        templateData={templateData}
-        templateKey="imageList"
-        newName="image"
-        handleInputChange={handleInputChange}
-        handleTemplateChange={handleTemplateChange}
-        removeFieldFromData={removeFieldFromData}
-      />
-    </form>
+        <fieldset>
+          <legend>Datos adicionales</legend>
+          <label htmlFor="description">Descripción</label>
+          <textarea
+            name="description"
+            onChange={(e) => {
+              handleTemplateChange('description', e.target.value)
+            }}
+            cols="30"
+            rows="10"
+          ></textarea>
+          <label htmlFor="niche">Segmento Objetivo</label>
+          <input
+            onChange={(e) => {
+              handleInputChange(e)
+            }}
+            placeholder={templateData.niche}
+            name="niche"
+            type="text"
+          />
+        </fieldset>
+        <CustomListGenerator
+          title="características"
+          templateData={templateData}
+          templateKey="features"
+          newName="feature"
+          handleInputChange={handleInputChange}
+          handleTemplateChange={handleTemplateChange}
+          removeFieldFromData={removeFieldFromData}
+        />
+        <ListFieldset
+          title="documentación"
+          templateData={templateData}
+          templateKey="documentationList"
+          newName="documentation"
+          handleInputChange={handleInputChange}
+          handleTemplateChange={handleTemplateChange}
+          removeFieldFromData={removeFieldFromData}
+        />
+        <ListFieldset
+          title="video"
+          templateData={templateData}
+          templateKey="videoList"
+          newName="video"
+          handleInputChange={handleInputChange}
+          handleTemplateChange={handleTemplateChange}
+          removeFieldFromData={removeFieldFromData}
+        />
+        <ListFieldset
+          title="imagen"
+          templateData={templateData}
+          templateKey="imageList"
+          newName="image"
+          handleInputChange={handleInputChange}
+          handleTemplateChange={handleTemplateChange}
+          removeFieldFromData={removeFieldFromData}
+        />
+      </form>
+      <ProductTemplatePreview data={data} />
+    </section>
   )
 }
 

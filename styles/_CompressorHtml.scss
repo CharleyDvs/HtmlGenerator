@@ -1,4 +1,14 @@
+.product-html-grid {
+  display: grid;
+  grid-template-areas:
+    'form code-preview'
+    'preview preview';
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  width: 100vw;
+}
+
 .generator-form {
+  grid-area: form;
   max-width: 95%;
   margin: 2.5%;
   fieldset {
@@ -20,4 +30,8 @@
       width: 90%;
     }
   }
+}
+
+.product-template-preview {
+  grid-area: preview;
 }
