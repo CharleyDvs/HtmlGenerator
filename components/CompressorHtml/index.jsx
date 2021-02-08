@@ -98,7 +98,6 @@ const initialTemplateData = {
       label: 'código interno 1',
     },
   ],
-  additionalData: {},
   documentationList: [
     {
       name: 'documentation0',
@@ -192,7 +191,7 @@ function CompressorHtml() {
           <textarea
             name="description"
             onChange={(e) => {
-              handleTemplateChange('description', e.target.value)
+              handleInputChange(e)
             }}
             cols="30"
             rows="10"

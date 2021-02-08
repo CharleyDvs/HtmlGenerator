@@ -1,7 +1,11 @@
 import React from 'react'
-import { sortData } from './utils'
+import { sortData } from '../../utils/sortData'
+import { filterObjectKeys } from '../../utils/filterObjectKeys'
 import ProductTitlePreview from '../ProductTitlePreview'
+import CustomListPreview from '../CustomListPreview'
 import ProductTablePreview from '../ProductTablePreview'
+import ImageListPreview from '../ImageListPreview'
+import VideoListPreview from '../VideoListPreview'
 
 const initialTemplateData = {
   tableTemplate: {
@@ -121,13 +125,48 @@ const initialTemplateData = {
 function ProductTemplatePreview({ data }) {
   const { tableTemplate } = initialTemplateData
   const tableDataSorted = sortData(Object.keys(tableTemplate), data)
+  const alternativeCodeList = filterObjectKeys('alternative', data).map(
+    (key) => {
+      if (data[key]) return data[key]
+    }
+  )
+  const innerCodeList = filterObjectKeys('inner', data).map((key) => {
+    if (data[key]) return data[key]
+  })
+  const documentationList = filterObjectKeys('documentation', data).map(
+    (key) => {
+      if (data[key]) return data[key]
+    }
+  )
+  const imageList = filterObjectKeys('image', data).map((key) => {
+    if (data[key]) return data[key]
+  })
+  const videoList = filterObjectKeys('video', data).map((key) => {
+    if (data[key]) return data[key]
+  })
   return (
     <section className="product-template-preview">
       <ProductTitlePreview data={data} productType="Compresor de aire" />
+      <CustomListPreview list={alternativeCodeList} />
+      <CustomListPreview list={innerCodeList} title="Códigos" />
+      {data.niche && (
+        <>
+          <h3>Segmento Objetivo</h3>
+          <p>{data.niche}</p>
+        </>
+      )}
+      {data.description && (
+        <>
+          <h3>Características</h3>
+          <p>{data.description}</p>
+        </>
+      )}
       <ProductTablePreview
         tableData={tableDataSorted}
         tableTemplateData={tableTemplate}
       />
+      <ImageListPreview srcList={imageList} />
+      <VideoListPreview urlList={videoList} />
     </section>
   )
 }
