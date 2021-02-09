@@ -32,6 +32,11 @@
   }
 }
 
+.html-preview {
+  grid-area: code-preview;
+  overflow: scroll;
+}
+
 .product-template-preview {
   grid-area: preview;
 }

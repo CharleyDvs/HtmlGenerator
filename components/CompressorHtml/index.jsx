@@ -2,7 +2,10 @@ import React, { useState } from 'react'
 import CustomFieldset from '../CustomFieldset'
 import ListFieldset from '../ListFieldset'
 import CustomListGenerator from '../CustomListGenerator'
+import LinkFieldSet from '../LinkFieldset'
 import ProductTemplatePreview from '../ProductTemplatePreview'
+import { compressorHtmlGenerator } from '../../utils/compressorHtmlGenerator'
+import { copyCodeToClipboard } from '../../utils/copyCode'
 
 const initialTemplateData = {
   tableTemplate: {
@@ -83,6 +86,12 @@ const initialTemplateData = {
       label: 'nivel de uso',
     },
   },
+  documentationList: [
+    {
+      name: 'documentation0',
+      label: 'documentación 1',
+    },
+  ],
   description: '',
   features: [],
   niche: '',
@@ -104,6 +113,7 @@ const initialTemplateData = {
       label: 'documentación 1',
     },
   ],
+  accesoriesList: [],
   videoList: [
     {
       name: 'video0',
@@ -141,9 +151,10 @@ function CompressorHtml() {
     console.log(data)
   }
 
-  const removeFieldFromData = (keyToRemove) => {
+  const removeFieldFromData = (keyToRemove, secondKeyToRemove = null) => {
     const newData = { ...data }
     delete newData[keyToRemove]
+    if (secondKeyToRemove) delete newData[secondKeyToRemove]
     setData(newData)
   }
 
@@ -185,11 +196,29 @@ function CompressorHtml() {
           handleTemplateChange={handleTemplateChange}
           removeFieldFromData={removeFieldFromData}
         />
+        <LinkFieldSet
+          title="documentación"
+          templateData={templateData}
+          templateKey="documentationList"
+          newName="documentation"
+          handleInputChange={handleInputChange}
+          handleTemplateChange={handleTemplateChange}
+          removeFieldFromData={removeFieldFromData}
+        />
         <fieldset>
           <legend>Datos adicionales</legend>
           <label htmlFor="description">Descripción</label>
           <textarea
             name="description"
+            onChange={(e) => {
+              handleInputChange(e)
+            }}
+            cols="30"
+            rows="10"
+          ></textarea>
+          <label htmlFor="description">Garantía</label>
+          <textarea
+            name="warranty"
             onChange={(e) => {
               handleInputChange(e)
             }}
@@ -215,11 +244,11 @@ function CompressorHtml() {
           handleTemplateChange={handleTemplateChange}
           removeFieldFromData={removeFieldFromData}
         />
-        <ListFieldset
-          title="documentación"
+        <CustomListGenerator
+          title="accesorios"
           templateData={templateData}
-          templateKey="documentationList"
-          newName="documentation"
+          templateKey="accesoriesList"
+          newName="accesory"
           handleInputChange={handleInputChange}
           handleTemplateChange={handleTemplateChange}
           removeFieldFromData={removeFieldFromData}
@@ -243,7 +272,22 @@ function CompressorHtml() {
           removeFieldFromData={removeFieldFromData}
         />
       </form>
-      <ProductTemplatePreview data={data} />
+      <div className="html-preview">
+        <p>{compressorHtmlGenerator(data, initialTemplateData)}</p>
+        <button
+          onClick={() =>
+            copyCodeToClipboard(
+              compressorHtmlGenerator(data, initialTemplateData)
+            )
+          }
+        >
+          Copiar Código
+        </button>
+      </div>
+      <ProductTemplatePreview
+        data={data}
+        initialTemplateData={initialTemplateData}
+      />
     </section>
   )
 }
