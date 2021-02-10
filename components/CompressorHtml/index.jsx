@@ -31,11 +31,11 @@ const initialTemplateData = {
     },
     flowRate: {
       name: 'flowRate',
-      label: 'capacidad de flujo',
+      label: 'flujo de volumen de aire',
     },
-    airFlow: {
-      name: 'airFlow',
-      label: 'volumen de generación de aire',
+    originCountry: {
+      name: 'originCountry',
+      label: 'país de origen',
     },
     motor: {
       name: 'motor',
@@ -47,7 +47,7 @@ const initialTemplateData = {
     },
     tank: {
       name: 'tank',
-      label: 'posición del tanque',
+      label: 'datos del tanque',
     },
     compressorElem: {
       name: 'compressorElem',
