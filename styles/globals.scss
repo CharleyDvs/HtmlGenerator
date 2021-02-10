@@ -29,19 +29,20 @@ ul {
 }
 
 button {
-  margin: 1rem 0;
+  margin: 1rem auto;
   padding: 1rem 2rem;
   border: 2px solid #ddd;
   color: #ddd;
   width: 50%;
   background-color: rgba(0, 0, 0, 0);
-  transition: all ease 0.7s;
+  transition: all ease 0.5s;
   font-weight: 700;
   .fas {
     margin: 0 8px;
     opacity: 0.8;
   }
   cursor: pointer;
+  min-width: 150px;
   &:hover {
     transform: scale(1.02) translateY(0.1rem);
     box-shadow: 16px 16px 16px #000;
@@ -49,11 +50,15 @@ button {
     border: 2px solid firebrick;
     color: #ddd;
   }
+  &:active {
+    transform: scale(0.9);
+  }
 }
 
+@import './home';
 @import './htmlGenerator';
 @import './templateForm';
 @import './htmlPreview';
-@import './CompressorHtml';
+@import './productHtml';
 @import './productTemplatePreview';
-@import './product-table-preview';
+@import './productTablePreview';

@@ -1,17 +1,17 @@
-import Head from 'next/head'
-import HtmlGenerator from '../components/HtmlGenerator'
+import { useRouter } from 'next/router'
 
 export default function Home() {
+  const router = useRouter()
   return (
-    <>
-      <Head>
-        <script
-          src="https://kit.fontawesome.com/57fa0c75ff.js"
-          crossOrigin="anonymous"
-        ></script>
-        <title>Generador de HTML</title>
-      </Head>
-      <HtmlGenerator />
-    </>
+    <section className="home">
+      <h1>Generador de Html</h1>
+      <p>Elije el html que quieres generar</p>
+      <nav>
+        <ul>
+          <li onClick={() => router.push('/cornershop')}>Cornershop</li>
+          <li onClick={() => router.push('products/compresor')}>Compresor</li>
+        </ul>
+      </nav>
+    </section>
   )
 }

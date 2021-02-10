@@ -1,0 +1,22 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  justify-content: flex-start;
+  align-items: center;
+  nav {
+    li {
+      margin: 1rem;
+      transition: all ease 0.5s;
+      font-size: 1.5rem;
+      font-weight: 700;
+      opacity: 0.3;
+      cursor: pointer;
+      &:hover {
+        opacity: 1;
+        font-size: 2rem;
+      }
+    }
+  }
+}

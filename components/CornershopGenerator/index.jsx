@@ -5,7 +5,7 @@ import axios from 'axios'
 import { templateGenerator } from '../../utils/templateGenerator'
 import { copyCodeToClipboard } from '../../utils/copyCode'
 
-const HtmlGenerator = () => {
+const CornershopGenerator = () => {
   const [templateVariables, setTemplateVariables] = useState({})
   const setTemplateData = (data) => {
     setTemplateVariables(data)
@@ -56,4 +56,4 @@ const HtmlGenerator = () => {
   )
 }
 
-export default HtmlGenerator
+export default CornershopGenerator
