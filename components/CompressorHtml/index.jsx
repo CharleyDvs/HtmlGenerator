@@ -33,10 +33,6 @@ const initialTemplateData = {
       name: 'flowRate',
       label: 'flujo de volumen de aire',
     },
-    originCountry: {
-      name: 'originCountry',
-      label: 'país de origen',
-    },
     motor: {
       name: 'motor',
       label: 'tipo de motor',
@@ -84,6 +80,10 @@ const initialTemplateData = {
     useLevel: {
       name: 'useLevel',
       label: 'nivel de uso',
+    },
+    originCountry: {
+      name: 'originCountry',
+      label: 'país de origen',
     },
   },
   documentationList: [
